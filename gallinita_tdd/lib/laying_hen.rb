@@ -46,6 +46,12 @@ class LayingHen
   end
 
   def increase_hatched_hour(hours)
-    @hatched_hours = hours
+    if hours.class == Fixnum
+      @hatched_hours = hours
+    else
+      raise ArgumentError
+    end
   end
 end
+
+class NoEggsError < StandardError; end
